@@ -1,0 +1,47 @@
+.loading-wrapper {
+    @include flex(center);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    color: $main;
+    background-color: rgba($white, 0.5);
+
+    .react-loading {
+        width: size(30);
+    }
+}
+
+.sa-query-table-content {
+    position: relative;
+}
+
+.sa-query-page-content {
+    margin-top: 10px;
+
+    .pagination-wrap {
+        justify-content: center;
+
+        .pagination {
+            .label {
+                float: none;
+                margin-left: 20px;
+            }
+
+            .input {
+                float: none;
+                margin-right: 0;
+            }
+
+            .page-btn {
+                &.disabled {
+                    background: transparent;
+                    border-color: $border;
+                    color: $font-light;
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+}

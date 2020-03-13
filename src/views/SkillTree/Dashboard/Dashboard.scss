@@ -1,0 +1,19 @@
+.skill-tree-dashbord {
+    @include flex(flex-start, center, wrap);
+    .skill-tree-box {
+        position: relative;
+        width: size(700);
+        height: size(500);
+        margin-left: size(20);
+        .skill-item {
+            @include flex(center);
+            position: absolute;
+            width: size(100);
+            height: size(50);
+            border-radius: size(10);
+            background: red;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}

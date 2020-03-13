@@ -1,0 +1,17 @@
+.not-found {
+    text-align: center;
+
+    h1 {
+        margin: size(125) 0 size(1);
+        font-size: size(48);
+        font-weight: 400;
+        letter-spacing: size(1);
+    }
+
+    .back {
+        padding: 0 size(30);
+        margin: size(50) auto 0;
+        text-align: center;
+        background: transparent;
+    }
+}

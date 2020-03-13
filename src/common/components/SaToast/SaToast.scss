@@ -1,0 +1,31 @@
+@mixin toast-border($color: $black) {
+    border: size(1) solid $color;
+}
+#sa-toast {
+    position: fixed;
+    top: size(100);
+    left: 50%;
+    transform: translateX(-50%);
+    .sa-toast-el {
+        @include flex();
+        padding: size(10);
+        border: size(1) solid $main;
+        border-radius: size(4);
+        margin: size(10) 0;
+        &.icon-success {
+            @include toast-border($green);
+        }
+        &.icon-warn {
+            @include toast-border($yellow);
+        }
+        &.icon-info {
+            @include toast-border();
+        }
+        &.icon-error {
+            @include toast-border($red);
+        }
+        .svg-tag {
+            width: size(25);
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@mixin font-style($size: size(14), $weight: 400, $spacing: size(1)) {
+    font-size: $size;
+    font-weight: $weight;
+    letter-spacing: $spacing;
+}
+
+@mixin title-xl() {
+    @include font-style(size(48));
+}
+
+@mixin title-lg() {
+    @include font-style(size(34));
+}
+
+@mixin title() {
+    @include font-style(size(24));
+}
+
+@mixin head() {
+    @include font-style(size(2));
+}
+
+@mixin subhead() {
+    @include font-style(size(16));
+}
+
+@mixin content() {
+    @include font-style();
+}
+
+@mixin sub-content() {
+    @include font-style(size(12));
+}

@@ -1,0 +1,22 @@
+.read-excel {
+    position: relative;
+    height: size(30);
+    #addMultiFm {
+        width: size(80);
+        height: size(30);
+        opacity: 0;
+        position: absolute;
+        z-index: 1;
+    }
+    .batchImportHouse {
+        @include flex(center, center);
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 0;
+        padding: size(5) size(10);
+        border: size(1) solid red;
+        color: red;
+        border-radius: size(5);
+    }
+}

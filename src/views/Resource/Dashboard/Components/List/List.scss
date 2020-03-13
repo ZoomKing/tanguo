@@ -1,0 +1,42 @@
+.dashbord-list {
+    @include flex(flex-start, center, wrap);
+    .dashbord-item {
+        position: relative;
+        top: 0;
+        width: size(450);
+        height: size(300);
+        margin: size(10) size(15);
+        padding: size(10) size(10) size(10) size(100);
+        line-height: size(25);
+        // border: size(1) solid $main;
+        border-radius: size(10);
+        background: white;
+        cursor: pointer;
+        &:hover {
+            top: size(-3);
+            transition: top 0.3s;
+            box-shadow: 0 size(5) size(10) size(1) $main;
+        }
+        p.item-title {
+            @include font-style(size(20), bold);
+            color: $main;
+        }
+        img {
+            position: absolute;
+            left: size(-20);
+            top: 50%;
+            transform: translateY(-50%);
+            width: size(100);
+        }
+    }
+    .dashbord-item-copy {
+        @include font-style(size(12));
+        @include height(size(25));
+        position: absolute;
+        right: size(10);
+        bottom: size(10);
+        color: white;
+        padding: 0 size(0);
+        width: size(40);
+    }
+}

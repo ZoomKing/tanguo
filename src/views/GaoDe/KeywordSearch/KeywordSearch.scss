@@ -1,0 +1,68 @@
+.keyword-search {
+    .keyword-search-content {
+        @include flex(flex-start, center, wrap);
+    }
+    .search-content {
+        .search-btn {
+            margin: size(20);
+            @include flex(center);
+            .react-input {
+                margin-right: size(20);
+            }
+        }
+        .city-area {
+            @include flex();
+        }
+        .province-name {
+            @include font-style(size(30));
+            color: $blue;
+        }
+        .city-content,
+        .area-content {
+            @include flex(flex-start, center, wrap);
+            border: size(1) dashed $main;
+            width: size(400);
+            height: size(230);
+            padding: size(10);
+            margin-right: size(30);
+            li {
+                padding: size(10);
+                margin: size(5);
+                background: $main;
+                color: white;
+                border-radius: size(5);
+                cursor: pointer;
+            }
+        }
+        .area-content li {
+            background: $blue;
+            &.active {
+                background: $main;
+            }
+        }
+    }
+    .pois-item {
+        @include flex(flex-start, center, wrap);
+        width: 90vw;
+        box-sizing: border-box;
+        border: size(1) solid $blue;
+        margin: size(10);
+        padding: size(10);
+        border-radius: size(10);
+        p {
+            margin-right: size(20);
+            &:nth-child(2) {
+                width: size(300);
+            }
+            &:nth-child(3) {
+                width: size(350);
+            }
+            &:nth-child(4) {
+                width: size(200);
+            }
+            &:nth-child(5) {
+                width: size(100);
+            }
+        }
+    }
+}

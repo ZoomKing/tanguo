@@ -1,0 +1,84 @@
+.pagination-wrap {
+    @include flex(flex-end);
+    padding: size(10) 0 0;
+
+    .total-page {
+        padding-right: size(10);
+        color: $font-light;
+    }
+}
+
+.pagination {
+    $base-size: 10px;
+
+    @function size($val: 1) {
+        @return $val * $base-size;
+    }
+
+    @mixin no-select() {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    color: $font;
+    overflow: hidden;
+
+    .label {
+        float: left;
+        height: size(2.8);
+        line-height: size(2.8);
+        @include no-select();
+        color: $font-light;
+    }
+
+    .input {
+        box-sizing: border-box;
+        float: left;
+        width: size(6);
+        height: size(2.8);
+        padding: 0 size();
+        margin: 0 size(2) 0 size();
+        border: 1px solid $border;
+        border-radius: size(0.3);
+        line-height: size(2.6);
+        color: $font;
+        outline: none;
+
+        &:focus {
+            border-color: $main;
+        }
+    }
+
+    .page-btn {
+        box-sizing: border-box;
+        float: left;
+        min-width: size(2.8);
+        height: size(2.8);
+        line-height: size(2.6);
+        padding: 0 size(0.4);
+        margin: 0 0 0 size();
+        border: 1px solid $border;
+        text-align: center;
+        cursor: pointer;
+        vertical-align: middle;
+        @include no-select();
+
+        &:hover {
+            background: rgba($main, 0.3);
+        }
+
+        &.disabled {
+            cursor: default;
+            background: rgba(#000, 0.1);
+            border-color: rgba($border, 0.1);
+        }
+
+        &.active {
+            color: #fff;
+            background: $main;
+            border-color: $main;
+        }
+    }
+}

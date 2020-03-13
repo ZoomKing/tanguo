@@ -1,0 +1,6 @@
+.client-header {
+    @include flex(space-between);
+    @include height($header-height);
+    padding: 0 size(20);
+    box-shadow: 0 size(2) size(4) darken($black-lighter, 10);
+}

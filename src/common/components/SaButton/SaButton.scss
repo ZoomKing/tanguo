@@ -1,0 +1,69 @@
+.sa-button {
+    @include height(size(32), size(30));
+    padding: 0 size(20);
+    color: $main;
+    border: size(1) solid $main;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+
+    .react-loading {
+        position: relative;
+        top: 0.2em;
+        width: 1.2em !important;
+    }
+}
+
+// .sa-button-normal {
+//   // border: size(1) solid $main;
+//   border: none;
+//   border-radius: $border-radius;
+
+//   &.btn-pending {
+//     color: $main !important;
+//     border-color: $main !important;
+//     background: transparent !important;
+//   }
+
+//   &.sa-fill {
+//     color: white;
+//     background: linear-gradient(to right, $main-light, $main);
+//     &.btn-pending {
+//       background: $main !important;
+//       color: $white !important;
+//     }
+//   }
+// }
+
+.sa-button-text {
+    border: none;
+}
+
+.sa-button-disable {
+    background: $bg;
+}
+
+.btn-submit {
+    @include height(size(36), size(34));
+    box-sizing: border-box;
+    display: block;
+    width: size(70);
+    margin: size(20) auto 0;
+    color: $white;
+
+    &.btn-pending {
+        background: $main !important;
+        color: $white !important;
+    }
+
+    .svg-tag {
+        width: size(24);
+        margin: 0 size(5) 0 0;
+        vertical-align: middle;
+    }
+}

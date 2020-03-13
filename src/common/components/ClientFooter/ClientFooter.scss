@@ -1,0 +1,11 @@
+.client-footer {
+    @include flex(center);
+    position: fixed;
+    width: 100%;
+    bottom: size(5);
+    color: $black;
+    img {
+        width: size(15);
+        margin-right: size(5);
+    }
+}

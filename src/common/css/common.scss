@@ -1,0 +1,241 @@
+/* ==========================================================================
+   Global
+   样式初始化
+   ========================================================================== */
+//html {
+//  font-size: 625%;
+//}
+
+* {
+    flex: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+}
+
+body {
+    @include content();
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    color: $font;
+}
+
+body {
+    background: $bg;
+    position: relative;
+    width: fit-content;
+    min-width: 100vw;
+    overflow-x: hidden;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+img {
+    display: inline-block;
+    border: none;
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   Common
+   公共样式
+   ========================================================================== */
+
+.transparent {
+    opacity: 0;
+}
+
+.transparent-no-event {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.transition {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hide {
+    display: none;
+}
+
+/* ==========================================================================
+   Containers
+   容器
+   ========================================================================== */
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.content-card {
+    width: 100%;
+    margin: 0 0 size(10);
+    background: #fff;
+}
+
+/* ==========================================================================
+   Form element
+   表单样式
+   ========================================================================== */
+
+input,
+textarea,
+select,
+button,
+.btn {
+    height: size(34);
+    padding: 0 size(10);
+    border-radius: $border-radius;
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+
+    &:focus {
+        border-color: $main;
+    }
+
+    &::placeholder {
+        color: $font-lighter;
+    }
+}
+
+/* ==========================================================================
+   Tag for route link
+   <a> 标签样式
+   ========================================================================== */
+
+a,
+.a {
+    opacity: 0.8;
+    color: inherit;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 1 !important;
+    }
+}
+
+/* ==========================================================================
+   Table
+   ========================================================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* ==========================================================================
+   Font
+   按钮样式
+   ========================================================================== */
+
+button,
+.btn {
+    @include height(size(34), size(32));
+    color: inherit;
+    text-align: center;
+    border: 1px solid $border;
+    cursor: pointer;
+
+    &[disabled],
+    &.disabled {
+        border-color: $disabled !important;
+        background: $disabled !important;
+        color: $font-light !important;
+        cursor: default !important;
+    }
+}
+
+@each $name, $color in (main, $main), (gray, $black-light), (green, $green),
+    (red, $red), (blue, $blue)
+{
+    .btn-#{$name} {
+        @include btn($color);
+        opacity: 0.8;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .btn-#{$name}-fill {
+        @include btn-fill($color);
+        opacity: 0.8;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+/* ==========================================================================
+   Font
+   字体样式
+   ========================================================================== */
+
+@each $name,
+    $color
+        in (
+            main: $main,
+            blue: $blue,
+            light-blue: $blue-light,
+            red: $red,
+            green: $green
+        )
+{
+    .font-#{$name} {
+        color: $color;
+    }
+}
+
+/* ==========================================================================
+   Capitalize
+   字母大写样式
+   ========================================================================== */
+.capitalize {
+    text-transform: capitalize;
+}
+ul {
+    list-style: none;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+
+// Capitalize for paragraph
+// Attention: :first-letter only work on block element or inline-block element that has been set the width or height
+// 英文语句首单词首字母大写
+// 注意：:first-letter 只在 block 元素或者被设置了宽度或高度的 inline-block 元素上起作用
+.p-capitalize {
+    &:first-letter {
+        text-transform: uppercase;
+    }
+}
+
+p {
+    max-width: 100%;
+}
+
+[lang='en'] h1,
+[lang='en'] h2,
+[lang='en'] h3,
+[lang='en'] h4,
+[lang='en'] h5,
+[lang='en'] h6,
+[lang='en'] button,
+[lang='en'] .btn {
+    @extend .capitalize;
+}
+
+[lang='en'] p {
+    @extend .p-capitalize;
+}

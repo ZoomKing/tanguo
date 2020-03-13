@@ -1,0 +1,11 @@
+.loading {
+    @include flex(center);
+    position: relative;
+    min-height: calc(100vh - #{$header-height} - #{$min-footer-height});
+
+    .react-loading {
+        width: 40px;
+        height: 40px;
+        color: $main;
+    }
+}

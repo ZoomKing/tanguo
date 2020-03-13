@@ -1,0 +1,37 @@
+.websocket-chat {
+    margin: size(20);
+    .chat {
+        width: size(600);
+        padding: size(20);
+        border: size(1) solid $black;
+        border-radius: size(4);
+        .line {
+            @include flex-column();
+            margin: size(10) 0;
+            .line-name {
+                padding: 0 size(10);
+                background: $main;
+                color: white;
+                border-radius: size(10);
+            }
+            .line-content {
+                margin: size(10) 0;
+                background: $black-lighter;
+                padding: 0 size(20);
+                border-radius: size(4);
+            }
+        }
+    }
+    .send-msg {
+        margin: size(20) 0;
+        button {
+            margin-left: size(20);
+        }
+    }
+    .set-name {
+        @include flex(center);
+        button {
+            margin-left: size(20);
+        }
+    }
+}

@@ -1,0 +1,9 @@
+$base-size: 1px;
+
+@function size($val: 1) {
+    @return $val * $base-size;
+}
+
+$margin: 20px;
+$padding: 25px;
+$border-radius: 3px;

@@ -1,0 +1,29 @@
+.province {
+    @include flex-column(center, center);
+    width: size(1050);
+    margin: 0 auto;
+    .page-item {
+        @include flex(flex-start, center, wrap);
+        width: size(1050);
+        background: white;
+        box-sizing: border-box;
+        padding-left: size(70);
+    }
+}
+.province-item {
+    width: size(260);
+    height: size(220);
+    margin: size(20);
+    border: size(5) solid $black-dark;
+    padding: size(5);
+    .province-item-border {
+        height: 100%;
+        border: size(1) solid $black-dark;
+        padding: size(5);
+    }
+    .item {
+        @include flex(flex-start, flex-start);
+        @include font-style(size(14));
+        line-height: size(25);
+    }
+}

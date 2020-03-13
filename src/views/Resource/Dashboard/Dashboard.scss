@@ -1,0 +1,16 @@
+.search {
+    @include flex(space-between, center);
+    width: size(320);
+    margin: size(20) auto;
+    .react-input {
+        width: size(230);
+    }
+    .search-btn {
+        @include flex();
+        padding: size(10) size(20);
+        border-radius: size(4);
+        color: white;
+        background: #ff3766;
+        cursor: pointer;
+    }
+}

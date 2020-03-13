@@ -1,0 +1,50 @@
+@import 'size-variable';
+@import 'color-variable';
+@import 'font-variable';
+@import 'z-index';
+@import 'elements/input';
+@import 'elements/select';
+@import 'elements/client-header';
+@import 'elements/client-footer';
+
+@mixin flex($h: flex-start, $v: center, $wrap: nowrap) {
+    display: flex;
+    justify-content: $h;
+    align-items: $v;
+    flex-wrap: $wrap;
+}
+
+@mixin flex-column($h: flex-start, $v: flex-start) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $h;
+    align-items: $v;
+}
+
+@mixin ellipsis($max-width) {
+    max-width: $max-width;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+@mixin btn($color) {
+    border-color: $color;
+    color: $color;
+}
+
+@mixin btn-fill($color) {
+    border-color: $color;
+    color: #fff !important;
+    background-color: $color;
+}
+
+@mixin height($height, $lineHeight: 0) {
+    height: $height;
+
+    @if $lineHeight != 0 {
+        line-height: $lineHeight;
+    } @else {
+        line-height: $height;
+    }
+}
