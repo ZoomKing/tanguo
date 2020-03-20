@@ -7,11 +7,12 @@
         margin-left: size(20);
         .skill-item {
             @include flex(center);
+            @include font-style(size(12));
             position: absolute;
-            width: size(100);
-            height: size(50);
-            border-radius: size(10);
-            background: red;
+            width: size(80);
+            height: size(40);
+            border-radius: size(4);
+            background: #cfb53b;
             color: white;
             cursor: pointer;
         }

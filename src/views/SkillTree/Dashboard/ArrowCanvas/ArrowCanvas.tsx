@@ -40,14 +40,12 @@ export interface ArrowCanvasParams {
 interface ArrowOptions {
     options: ArrowCanvasParams[]
 }
-
 /**
  * 此箭头只会进行最多两次转折
  * 不是直线的距离的两个点，横向距离最小差40
  */
 const ArrowCanvas: React.FC<ArrowOptions> = ({ options, ...rest }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null)
-    console.log('options', options)
     // 计算得出canvas宽和高
     const [width, height] = options.reduce(
         (pre, item) => {
@@ -64,33 +62,29 @@ const ArrowCanvas: React.FC<ArrowOptions> = ({ options, ...rest }) => {
         if (!canvasRef.current) return
         const context = canvasRef.current.getContext('2d')
         if (!context) return
-
         options.forEach(item => {
-            const {
+            let {
                 startPoint,
                 endPoint,
-                strokeStyle = 'gold',
+                strokeStyle = '#CFB53B',
                 lineWidth = 1,
-                cornerRadius = 20,
             } = item
             const [startPointX, startPointY] = startPoint
             const [endPointX, endPointY] = endPoint
             const XDiff = startPointX - endPointX > 0
-
             context.strokeStyle = strokeStyle
             context.lineWidth = lineWidth
             // 绘制直线
             context.beginPath()
             // 起点
             context.moveTo(startPointX + lineWidth / 2, startPointY)
-
             if (startPointX !== endPointX) {
                 context.arc(
                     startPointX +
                         lineWidth / 2 +
-                        (XDiff ? -cornerRadius : cornerRadius),
-                    endPointY - cornerRadius * 4,
-                    cornerRadius,
+                        (XDiff ? -lineWidth : lineWidth),
+                    endPointY - lineWidth * 4,
+                    lineWidth,
                     XDiff ? 0 : Math.PI,
                     Math.PI / 2,
                     !XDiff,
@@ -98,34 +92,31 @@ const ArrowCanvas: React.FC<ArrowOptions> = ({ options, ...rest }) => {
                 context.lineTo(
                     endPointX +
                         lineWidth / 2 -
-                        (XDiff ? -cornerRadius : cornerRadius),
-                    endPointY - cornerRadius * 3,
+                        (XDiff ? -lineWidth : lineWidth),
+                    endPointY - lineWidth * 3,
                 )
                 context.arc(
                     endPointX +
                         lineWidth / 2 -
-                        (XDiff ? -cornerRadius : cornerRadius),
-                    endPointY - cornerRadius * 2,
-                    cornerRadius,
+                        (XDiff ? -lineWidth : lineWidth),
+                    endPointY - lineWidth * 2,
+                    lineWidth,
                     (Math.PI / 2) * 3,
                     XDiff ? Math.PI : 0,
                     !!XDiff,
                 )
             }
 
-            context.lineTo(endPointX + lineWidth / 2, endPointY - cornerRadius)
+            context.lineTo(endPointX + lineWidth / 2, endPointY - lineWidth)
             context.stroke()
             // 除箭头部分结束
             // 箭头
             context.beginPath()
             context.lineWidth = lineWidth / 2
-            context.moveTo(
-                endPointX + lineWidth / 2 - cornerRadius,
-                endPointY - cornerRadius,
-            )
+            context.moveTo(endPointX - lineWidth / 2, endPointY - lineWidth)
             context.lineTo(
-                endPointX + lineWidth / 2 + cornerRadius,
-                endPointY - cornerRadius,
+                endPointX + (lineWidth * 3) / 2,
+                endPointY - lineWidth,
             )
             context.lineTo(endPointX + lineWidth / 2, endPointY)
             context.fillStyle = strokeStyle

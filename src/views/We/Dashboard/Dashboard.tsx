@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './Dashboard.scss'
 import SaToast from '@/common/components/SaToast/SaToast'
 import SaButton from '@/common/components/SaButton/SaButton'
@@ -16,6 +16,30 @@ const Dashboard: React.FC = () => {
     const saToastError = () => {
         SaToast.error('saToastError')
     }
+    const ref = useRef<any>()
+
+    const onInput = () => {
+        console.log('ref', ref.current.files)
+        const files = ref.current.files
+        const reader = new FileReader()
+        // 读取文件
+        reader.readAsText(files[0])
+        // reader.readAsText(files[0], 'UTF-8')
+        // reader.readAsText(files[0], 'gb2312')
+        // reader.readAsArrayBuffer(files[0])
+        // reader.readAsText(files[0], 'gb2312')
+        // reader.readAsText(files[0], 'gb2312')
+        // 读取完文件之后会回来这里
+        reader.onload = function(e: any) {
+            // console.log('e', e)
+            // 读取文件内容
+            const fileString = e.target.result
+            // 接下来可对文件内容进行处理
+            console.log(fileString)
+            const relArr = fileString.split('\r\n')
+            console.log('relArr', relArr)
+        }
+    }
 
     return (
         <div>
@@ -23,22 +47,7 @@ const Dashboard: React.FC = () => {
             <SaButton onClick={saToastWarn}>Toast-Success</SaButton>
             <SaButton onClick={saToastInfo}>Toast-Success</SaButton>
             <SaButton onClick={saToastError}>Toast-Success</SaButton>
-            <div>
-                <p>PlanA</p>
-                <p>
-                    邓州站 18:30 => 西安站 1:31(+1) <span>72元</span>
-                </p>
-                <p>
-                    西安站 => 西安北站 (17KM ) 地铁首班车 （06:33 ）time: 47分钟
-                </p>
-                <p>
-                    西安北站7：30 => 杭州东站 14:41 <span>653.5元</span>
-                </p>
-                <p>Time: 18:30 => 14:41(+1) Price: 725.5</p>
-            </div>
-            <div>
-                <p>PlanB</p>
-            </div>
+            <input type="file" ref={ref} onChange={onInput} />
         </div>
     )
 }
